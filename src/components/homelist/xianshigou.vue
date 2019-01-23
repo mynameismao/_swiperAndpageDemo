@@ -1,14 +1,14 @@
 <template>
     <div id="xianshigou">
         <!-- 轮播图 -->
-        <div class="xsgbanner">
-            <mt-swipe :auto="3000" style="height:5rem">
-                <mt-swipe-item v-for="(item,idx) in xsgban" :key="idx" class="bann">
+        <div class="xsgbanner swiper-container">
+            <div class="swiper-wrapper" :auto="3000" style="height:5rem">
+                <div v-for="(item,idx) in xsgban" :key="idx" class="bann swiper-slide">
                     <a :href="item.link">
                         <img :src="item.imagePath" style="height:5rem">
                     </a>
-                </mt-swipe-item>
-            </mt-swipe>
+                </div>
+            </div>
         </div>
 
         <!-- 抢购日期表 -->
@@ -56,8 +56,8 @@ import Vue from "vue";
 import Axios from 'axios';
 import { setInterval } from 'timers';
 
-
 import countdown from '../countdown';
+import Swiper from 'swiper'
 
 export default {
     components: {
@@ -86,6 +86,9 @@ export default {
 
             this.xsgbuy = res.data.data.container.floor[1].content.product[this.inde].list;
             // console.log(this.xsgbuy)
+            Vue.nextTick(() => {
+                var mySwiper = new Swiper('.xsgbanner')
+            })
         })
     },
     methods: {
@@ -93,7 +96,6 @@ export default {
 
     },
     mounted() {
-        
     },
 }
 </script>

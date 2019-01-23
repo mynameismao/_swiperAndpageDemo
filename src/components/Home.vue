@@ -145,7 +145,7 @@
                 this.active = this.$route.path === '/home/tabs=1' ? 1 : this.$route.path === '/home/tabs=2' ? 2 : this.$route.path === '/home/tabs=3' ? 3 : this.$route.path === '/home/tabs=4' ? 4 : this.$route.path === '/home/tabs=5' ? 5 : this.$route.path === '/home/tabs=6' ? 6 : this.$route.path === '/home/tabs=7' ? 7 : this.$route.path === '/home/tabs=8' ? 8 : 0 
             },
             slidecenter (clickedIndex, el) {
-                console.log(clickedIndex, el)
+                // console.log(clickedIndex, el)
                 var onheadactive  = el.offsetLeft //选中元素距离视口的距离
                 var hweight = el.offsetWidth // 元素的宽度
                 var winweight = document.body.clientWidth / 2 // 屏幕宽度的一半
@@ -154,7 +154,7 @@
                 var slidenum = this.navigatelabels.length
                 // 判断在屏幕的右边：选中元素中点距离视口的距离大于屏幕宽度一半
                 // 判断元素在可以移动到中心位置的距离范围内：全部元素的宽度-选中元素中点距离开始点的距离大于屏幕宽度一半
-                console.log(onheadactive, hweight, winweight, indexnum, distance, slidenum)
+                // console.log(onheadactive, hweight, winweight, indexnum, distance, slidenum)
                 if( onheadactive + hweight / 2 > winweight && (slidenum * hweight - distance ) > winweight ){
                     // console.log("左移");
                     this.swiper.setTransition(500);
